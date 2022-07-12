@@ -22,14 +22,14 @@ npm install --save editorjs-parser
 To use the package in browser, import Browser verison through CDN to your HTML file and just call `edjsParser` class:
 
 ```javascript
-const parser = new edjsParser(config, customParsers, embedMarkup);
+const parser = new edjsParser(config, customParsers, embedMarkup)
 ```
 
 To import the package in Node and Front-end code:
 
 ```javascript
-const edjsParser = require("editorjs-parser");
-const parser = new edjsParser(config, customParsers, embedMarkup);
+const edjsParser = require("editorjs-parser")
+const parser = new edjsParser(config, customParsers, embedMarkup)
 ```
 
 **NOTE:** **Parameters are optional**. If you want to only pass the second parameter, set the first parameter to `undefined`.
@@ -37,13 +37,13 @@ const parser = new edjsParser(config, customParsers, embedMarkup);
 To parse all blocks, pass the exact EditorJs' output object:
 
 ```javascript
-const markup = parser.parse(output);
+const markup = parser.parse(output)
 ```
 
 To parse one block, pass a complete block:
 
 ```javascript
-const markup = parser.parseBlock(block);
+const markup = parser.parseBlock(block)
 ```
 
 **NOTE:** HTML markup in code blocks are already sanitized and ready to be send to browser. You don't have to do anything.
@@ -64,7 +64,7 @@ const markup = parser.parseBlock(block);
 - Image
 - Simple-image
 
-**NOTE:** It is pointless to use both `image` and `simple-image` block types in the same editor insatnce, but this parser supports both of them and you can use any of them that fulfills your needs.
+**NOTE:** It is pointless to use both `image` and `simple-image` block types in the same editor instance, but this parser supports both of them and you can use any of them that fulfills your needs.
 
 ## Custom or overriding parser methods
 
@@ -167,9 +167,9 @@ const config = {
   embed: {
     useProvidedLength: true,
   },
-};
+}
 
-const parser = new edjsParser(config);
+const parser = new edjsParser(config)
 ```
 
 ### Custom embed markup (embeds)
@@ -179,7 +179,7 @@ If you want to render a custom markup for your embed service, pass it in an obje
 ```javascript
 const parser = new edjsParser(undifined, undifined, {
   youtube: `Your markup in string`,
-});
+})
 ```
 
 You also have access to `data` object. To use that you should put variable names in placeholders, like so:
@@ -187,9 +187,9 @@ You also have access to `data` object. To use that you should put variable names
 ```javascript
 const customEmbeds = {
   youtube: `<iframe src="<%data.embed%>" width="<%data.width%>"><%data.caption%></iframe>`,
-};
+}
 
-const parser = new edjsParser(undifined, undifined, customEmbeds);
+const parser = new edjsParser(undifined, undifined, customEmbeds)
 ```
 
 **NOTE:** If you want to have [useProvidedLength](#apply-provided-lengths-embeds) functionality, use `<%data.length%>` instead of `<%data.width%>` and `<%data.height%>` in embed markups.
